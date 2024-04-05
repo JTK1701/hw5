@@ -6,13 +6,13 @@ public class Main {
         System.out.println(" ");
         System.out.println("Введите 0, если у вас iOS, или 1, если у вас android.");
         Scanner os = new Scanner(System.in);
-        int operSys = os.nextInt();
-        switch (operSys) {
+        int clientOs = os.nextInt();
+        switch (clientOs) {
             case 1:
-                System.out.println("Уствновите приложение для андроид.");
+                System.out.println("Уствновите приложение для Android по ссылке.");
                 break;
             case 0:
-                System.out.println("Установите приложение для яблока");
+                System.out.println("Установите приложение для iOS по ссылке.");
                 break;
             default:
                 System.out.println("Вы ввели что-то не то.");
@@ -20,24 +20,28 @@ public class Main {
         System.out.println(" ");
         System.out.println("2 задача");
         Scanner os2 = new Scanner(System.in);
-        System.out.println("Введите 0, если у вас эппл, версии ос до 15 года и 1, если после. 2, если у вас андроид версии до 15 года или 3, если после.");
-        byte os15 = os2.nextByte();
-        switch (os15) {
-            case 0:
-                System.out.println("Установите приложение для iOS.");
-                break;
-            case 1:
-                System.out.println("Установите облегченную версию для iOS по ссылке.");
-                break;
-            case 2:
-                System.out.println("Установите приложение для android.");
-                break;
-            case 3:
-                System.out.println("Установите облегченную версию для android по ссылке.");
-                break;
-            default:
-                System.out.println("Вы ввели что-то не то.");
+        System.out.println("Введите 0, если у вас эппл, и 1 если у вас Android ");
+        int clientOs2 = os2.nextInt();
+        if (clientOs2 < 0 || clientOs2 > 1) {
+            System.out.println("Вы ввели некорректное значение");
+            System.exit(0);
         }
+        Scanner yearOs = new Scanner(System.in);
+        System.out.println("В каком году выпущено ваше устройство?");
+        int yearOfSystem = yearOs.nextInt();
+        short lightVersion = 2015;
+        if (clientOs2 > 1 || clientOs2 < 0) {
+            System.out.println("Вы ввели что-то не то");
+        } else if (clientOs2 == 0 && yearOfSystem < lightVersion) {
+            System.out.println("Установите версию приложения для iOS по ссылке");
+        } else if (clientOs2 == 0 && yearOfSystem >= lightVersion) {
+            System.out.println("установите облегченную версию приложения для iOS по ссылке");
+        } else if (clientOs2 == 1 && yearOfSystem < lightVersion) {
+            System.out.println("Установите версию для Android по ссылке");
+        } else if (clientOs2 == 1 && yearOfSystem >= lightVersion){
+            System.out.println("Установите облегченную версию приложения для Android по ссылке");
+        }
+
         System.out.println(" ");
         System.out.println("3 задача");
         System.out.println("Введите любой год после 1584 г.");
@@ -49,8 +53,8 @@ public class Main {
         int visokosnyi = 1;
         if (year < 1584) {
             visokosnyi = 3;
-        } else if (year100 == 0) {
-            visokosnyi = 1;
+        } else if (year100 == 0 && year400 != 0){
+            visokosnyi = visokosnyi;
         } else if (year400 == 0 || year4 == 0) {
             visokosnyi = 0;
         }
@@ -102,6 +106,9 @@ public class Main {
         System.out.println("Введите номер месяца.");
         Scanner month = new Scanner(System.in);
         byte monthNumber = month.nextByte();
+        if (monthNumber < 0 || monthNumber > 12) {
+            System.out.println("Вы ввели недопустимое значение");
+        }
         switch (monthNumber) {
             case 1:
                 System.out.println("Сейчас зима");
@@ -140,7 +147,6 @@ public class Main {
                 System.out.println("Сейчас зима");
                 break;
             default:
-                System.out.println("Вы ввели недопустимое значение ");
         }
     }
 }
