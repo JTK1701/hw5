@@ -52,22 +52,11 @@ public class Main {
         int year4 = year % 4;
         int visokosnyi = 1;
         if (year < 1584) {
-            visokosnyi = 3;
-        } else if (year100 == 0 && year400 != 0){
-            visokosnyi = visokosnyi;
-        } else if (year400 == 0 || year4 == 0) {
-            visokosnyi = 0;
-        }
-        switch (visokosnyi) {
-            case 1:
-                System.out.println("Этот год не является високосным.");
-                break;
-            case 0:
-                System.out.println("Этот год является високосным.");
-                break;
-            default:
-                System.out.println("Вы ввели год до 1584.");
-                break;
+            System.out.println("Вы ввели год до 1584");
+        } else if (year400 == 0 || year4 == 0 && year100 != 0) {
+            System.out.println("Этот год является високосным");
+        } else {
+            System.out.println("Этот год не является високосным");
         }
 
         System.out.println(" ");
