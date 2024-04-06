@@ -66,30 +66,15 @@ public class Main {
         int deliveryDistance = distance.nextInt();
         int deliveryTime = 0;
         if (deliveryDistance <= 20) {
-            deliveryTime = 1;
+            System.out.println("Потребуется дней - " + deliveryTime);
         } else if (deliveryDistance > 20 && deliveryDistance <= 60) {
-            deliveryTime = 2;
+            System.out.println("Потребуется дней - " + deliveryTime);
         } else if (deliveryDistance > 60 && deliveryDistance <= 100) {
-            deliveryTime = 3;
+            System.out.println("Потребуется дней - " + deliveryTime);
         } else if (deliveryDistance > 100) {
-            deliveryTime = 4;
+            System.out.println("В зоне свыше 100 километров, доставка не осуществляется");
         }
-        switch (deliveryTime) {
-            case 1:
-                System.out.println("Потребуется дней - " + deliveryTime);
-                break;
-            case 2:
-                System.out.println("Потребуется дней - " + deliveryTime);
-                break;
-            case 3:
-                System.out.println("Потребуется дней - " + deliveryTime);
-                break;
-            case 4:
-                System.out.println("В зоне свыше 100 километров, доставка не осуществляется");
-                break;
-            default:
-                System.out.println("Введены некорректные данные.");
-        }
+
         System.out.println(" ");
         System.out.println("5 задача");
         System.out.println("Введите номер месяца.");
